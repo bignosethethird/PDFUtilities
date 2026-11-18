@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/usr/bin/bash
 
 PROGNAME=${0##*/}
 STARTTIME=$(date +%s)
@@ -7,7 +6,7 @@ STARTTIME=$(date +%s)
 function Usage {
   printf "
 Usage:
-  ${0##*/} filepath.pdf \"search pattern\" \"replacement pattern\"
+  $PROGNAME filepath.pdf \"search pattern\" \"replacement pattern\"
 
 Function:
   Use this utility to replace text in a PDF file without having to edit the
@@ -20,10 +19,10 @@ Function:
   to use open-ended regexes such as \"*. etc\" for a search patternn.
 
 Example:
-	pdfsed ebook.pdf \"09 October\" \"10 October\"
+  $PROGNAME ebook.pdf \"09 October\" \"10 October\"
 
 Author:
-  Gerrit Hoekstra. You can contact me via https://github.com/gerritonagoodday
+  Gerrit Hoekstra. You can contact me via https://github.com/bignosethethird
 "
   exit 1
 }
