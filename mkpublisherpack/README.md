@@ -4,7 +4,46 @@ This utility builds a sheet music publication pack that can be submitted to shee
 It uses the PDF-exported output of a MuseScore composition or arrangement and combines and bookmarks all the parts into a single PDF file,
 complete with a front cover page. 
 
+# Synopsys
+
+MuseScore can export all its parts as separate PDF files, as below.
+Note that the shortest file name is main (conductor) score.
+
+	$ ls *.pdf
+	'Our House - Big Band.pdf'
+	'Our House - Big Band - Alto Saxophone 1.pdf'
+	'Our House - Big Band - Alto Saxophone 2.pdf'
+	'Our House - Big Band - Alto Saxophone 3.pdf'
+	'Our House - Big Band - Baritone Saxophone.pdf'
+	'Our House - Big Band - Bass Guitar.pdf'
+	'Our House - Big Band - Bass Trombone.pdf'
+	'Our House - Big Band - Clarinet in Bb 1.pdf'
+	'Our House - Big Band - Clarinet in Bb 2.pdf'
+	'Our House - Big Band - Drums.pdf'
+	'Our House - Big Band - Fluegelhorn.pdf'
+	'Our House - Big Band - Flute.pdf'
+	'Our House - Big Band - Jazz Guitar.pdf'
+	'Our House - Big Band - Piano.pdf'
+	'Our House - Big Band - Publisher Pack.pdf'
+	'Our House - Big Band - Tenor Saxophone 1.pdf'
+	'Our House - Big Band - Tenor Saxophone 2.pdf'
+	'Our House - Big Band - Tenor Saxophone 3.pdf'
+	'Our House - Big Band - Trombone in Bb 1.pdf'
+	'Our House - Big Band - Trombone in Bb 2.pdf'
+	'Our House - Big Band - Trombone in C 1.pdf'
+	'Our House - Big Band - Trombone in C 2.pdf'
+	'Our House - Big Band - Trumpet in Bb 1.pdf'
+	'Our House - Big Band - Trumpet in Bb 2.pdf'
+	'Our House - Big Band - Tuba in Bb.pdf'
+	'Our House - Big Band - Tuba in C.pdf'
+	'Our House - Big Band - Tuba in Eb.pdf'
+	'Our House - Big Band - Voice.pdf'
+
+The publisher pack shows this on the conver page:
+
 ![Coverpage](.images/coverpage.png)
+
+All instrument parts are bookmarked, which allows quick navigation between parts:
 
 ![Bookmarks](.images/bookmarks.png)
 
