@@ -52,7 +52,7 @@ To correct all PDF files in your current working directory so that they each dis
 
 # Author:
 
-Gerrit Hoekstra. You can contact me via https://github.com/gerritonagoodday
+Gerrit Hoekstra. You can contact me via https://github.com/bignosethethird
 
 # Environmental Notice:
 

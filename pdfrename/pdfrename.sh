@@ -6,30 +6,26 @@ STARTTIME=$(date +%s)
 function Usage {
   printf "
 Usage:
-  ${0##*/} filepath.pdf \"Document title to be set\"
+  $PROGNAME filepath.pdf \"Document title to be set\"
     or
-  ${0##*/} filepath.pdf
+  $PROGNAME filepath.pdf
     or
-  ${0##*/} filepath.pdf -e \"[regex search pattern in system filename]\" \"[regex substitution pattern]\"
-
+  $PROGNAME filepath.pdf -e \"[regex search pattern in system filename]\" \"[regex substitution pattern]\"
 
 Function:
   Use this utility to rename the internal name of a PDF file without having to
   edit the file with a bespoke PDF editor, and without modifying the system file
   name either.
 
-
 Example:
-	${0##*/} ebook.pdf \"My very first little eBook\"
-
-	 - sets the PDF Document Title to \"My very first little eBook\"
+  ${0##*/} ebook.pdf \"My very first little eBook\"
+   - sets the PDF Document Title to \"My very first little eBook\"
 
   ${0##*/} ebook.pdf -e \"\(.*\)\" \"\\1 - Annotated copy\"
-
    - sets the PDF Document Title to \"ebook - Annotated copy\"
 
 Author:
-  Gerrit Hoekstra. You can contact me via https://github.com/gerritonagoodday
+  Gerrit Hoekstra. You can contact me via https://github.com/bignosethethird
 "
   exit 1
 }
