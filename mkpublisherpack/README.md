@@ -5,6 +5,7 @@ It uses the PDF-exported output of a MuseScore composition or arrangement and co
 complete with a front cover page. 
 
 ![Coverpage](.images/coverpage.png)
+
 ![Bookmarks](.images/bookmarks.png)
 
 # Prerequisites:
@@ -17,16 +18,17 @@ You need to have the PDF Toolkit installed, a.k.a. "pdftk", as well as "pandoc".
 
 # Example:
 
-To create the publisher pack, go to the current working directory to where the PDF parts are and run this:
+To create the publisher pack, go to the current working directory to where the PDF parts are, and run this:
 
     mkpublisherpack.sh
 
-The name of the publisher pack is based on the shortest PDF filename in the directory, which, by default, is the conductor score, as exported as a PDF file by MuseScore, 
-eg. you would end up with a file called:
+The name of the publisher pack is based on the shortest PDF filename in the directory, which, by default, is the conductor score, as exported as a PDF file by MuseScore.
+You would end up with a file called something like this:
 
     [Composition Name] - PublisherPack.pdf
 
-Upload this to your chosen sheet music reseller. I use https://www.arrangeme.com, who then re-publish on https://sheetmusicplus.com
+Upload this to your chosen sheet music reseller. 
+I use https://www.arrangeme.com, who then also re-publish on https://sheetmusicplus.com
 
 # Installation:
 
@@ -41,13 +43,10 @@ Edit the file .attribution. If the file does not exist, it will automatically be
 The content of this file will appear on the cover page. Example:
 
     $ cat .attribution
-
-    ```
     Arranged for Big Band: Gerrit Hoekstra
 
     Composers: Cathal Smyth, Chris Foreman
     Original Artists: Madness
-    ```
 
 # Author:
 
