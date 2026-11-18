@@ -1,7 +1,7 @@
-#!/bin/bash
-# The main tool needs to be installed!
-[[ -z $(which pdftk)  ]] && printf "pdftk is ont install\nExiting...\n" && exit 1
-# Use only file in CWD if none specified on command line
+#!/usr/bin/bash
+# The main PDFTK tool needs to be installed!
+[[ -z $(which pdftk)  ]] && printf "pdftk is not installed.\nExiting...\n" && exit 1
+# Use the only file in CWD if none specified on command line
 [[ -f $1  ]] && f=$1 || f=$(ls -S *.pdf | head -1)
 # Make up title
 t=$(echo ${f%.pdf})
