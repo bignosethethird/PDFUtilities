@@ -28,9 +28,9 @@ STARTTIME=$(date +%s)
 function Usage {
   printf "
 Usage:
-  ${0##*/} filepath.pdf \"text to be removed\" \"another string of text to be removed\" ...
+  $PROGNAME filepath.pdf \"text to be removed\" \"another string of text to be removed\" ...
     or
-  ${0##*/} filepath.pdf
+  $PROGNAME filepath.pdf
 
 Function:
   Use this utility to remove any given string of text from a PDF file without having to edit the file with a PDF editor.
@@ -40,7 +40,7 @@ Example:
 	pdfrmtxt ebook.pdf \"http://free-pdf-books.com\" \"Free ebooks ==>\"
 
 Author:
-  Gerrit Hoekstra. You can contact me via https://github.com/gerritonagoodday
+  Gerrit Hoekstra. You can contact me via https://github.com/bignosethethird
 "
   exit 1
 }
@@ -131,5 +131,3 @@ info "Re-Compressing $PDFFILE"
 pdftk $TMPFILE1 output "$PDFFILE" compress  > /dev/null 2>&1
 retcode=$?
 [[ $retcode -ne 0 ]] && die "pdftk returned error code $retcode"
-
-

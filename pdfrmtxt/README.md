@@ -13,7 +13,7 @@ You need to have the PDF Toolkit installed, a.k.a. "pdftk". Depending on your Li
 
     yum install pdftk
     equo install pdftk
-    apt-get install pdftk
+    apt install pdftk
     emerge pdftk
 
 # Usage:
@@ -30,10 +30,10 @@ To remove the vexatious "http://free-pdf-books.com" URL that appears all over yo
 
     pdfrmtxt ebook.pdf "http://free-pdf-books.com"
 
-Remember to put a multi-word string in quotes
+Remember to put a multi-word string in quotes.
 
 To remove many frequently-encountered strings, don't specify any removal string. The list of annoying strings in the source code will be used instead.
-Add any further strings to the code yourself:
+You can any further strings to the code yourself, so that can simply run this command:
 
     pdfrmtxt ebook.pdf
 
@@ -55,9 +55,7 @@ Copy these files into your /usr/local/bin directory
 
 # Author:
 
-Gerrit Hoekstra. You can contact me via https://github.com/gerritonagoodday
-
-Inspired by an idea of Bikramjot Hanzra on https://gist.github.com/bikz05
+Gerrit Hoekstra. You can contact me via https://github.com/bignosethethird
 
 # Environmental Notice:
 
