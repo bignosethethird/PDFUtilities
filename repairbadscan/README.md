@@ -1,4 +1,4 @@
-# NAME:
+## NAME: repairbadscan
 
   repairbadscan - Clean up poor document scans, especially sheet music
   that has been scibbled on with pencil or with a librarian's stamp on it.
@@ -63,9 +63,9 @@
 
 ## SEE ALSO:
 
-  ImageMagick: https://imagemagick.org/
-  PDTK: https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/
-  Fred's ImageMagick Scripts: https://www.fmwconcepts.com/imagemagick
+  - ImageMagick: https://imagemagick.org/
+  - PDTK: https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/
+  - Fred's ImageMagick Scripts: https://www.fmwconcepts.com/imagemagick
 
 ## ABOUT:
 
