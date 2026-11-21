@@ -64,7 +64,7 @@ To create the publisher pack, go to the current working directory to where the P
 The name of the publisher pack is based on the shortest PDF filename in the directory, which, by default, is the conductor score, as exported as a PDF file by MuseScore.
 You would end up with a file called something like this:
 
-    [Composition Name] - PublisherPack.pdf
+    [Composition Name] - Publisher Pack.pdf
 
 Upload this to your chosen sheet music reseller. 
 I use https://www.arrangeme.com, who then also re-publish on https://sheetmusicplus.com
