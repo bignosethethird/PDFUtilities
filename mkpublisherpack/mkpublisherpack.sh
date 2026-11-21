@@ -10,16 +10,6 @@ Exiting...
   exit 1
 fi
 
-which pdftk >/dev/null 2>&1
-if [[ $? -ne 0 ]]; then
-  cat << !
-I find your lack of faith disturbing:
-PDFTK needs to be installed first.
-Exiting...
-!
-  exit 1
-fi
-
 rename --version | grep "using File::Rename" > /dev/null 2>&1
 if [[ $? -ne 0 ]]; then
   cat << !
@@ -49,9 +39,21 @@ rename 's/-/ - /g' *.pdf
 rename 's/_/ /g' *.pdf
 rename 's/  -  / - /g' *.pdf
 
+# Get Packname from Conductor PDF file
+PackName=$(ls *Conductor*.pdf | sed -e 's/\s*\.pdf\s*//' | sed -e 's/\s*-*\s*Conductor.*//')
+if [[ -n $PackName ]]; then
+   # Sanity check:
+   if [[ $(ls *Conductor*.pdf | wc -l) -gt 1 ]]; then
+       echo "Do. Or do not. There is no try. There are more than 1 conductor score files."
+       echo "Exiting..."
+       exit 1
+   fi
+   rename 's/\s*-\s*Conductor.*\.pdf/.pdf/' *.pdf
+else
+  # Get Packname from shortest PDF file
+  PackName=$(ls *.pdf | awk '{print length","$0}' | sort -n | cut -d"," -f2 | head -1 | sed -e 's/\.pdf\s*//' -e 's/\s*$//')
+fi
 
-# Get Packname from shortest PDF file
-PackName=$(ls *.pdf | awk '{print length","$0}' | sort -n | cut -d"," -f2 | head -1 | sed -e 's/\.pdf\s*//' -e 's/\s*$//')
 PackFileName="${PackName} - Publisher Pack.pdf"
 ContentsName="${PackName} - 00"
 rm "${PackFileName}" > /dev/null 2>&1
@@ -85,16 +87,16 @@ declare -i NumberOfPages=0
 for f in *.pdf; do
   Instrument=$(echo "$f" | sed -e 's/.* - //' | sed -e 's/\.pdf//')
   case "$Instrument" in
-    # Skip if we have base conductor score, as this is the "01" file
     "")
+      # Skip if we have base conductor score, as this is the "01" file
       continue;;
-    # Skip if we have the contents file (never going to happen)
     "00")
+      # Skip if we have the contents file (never going to happen)
       echo "It's a trap!"
       continue;;
-    # The "01" file is conductor score to be used
     "01")
-      Instrument="Conductor Score"
+      # The "01" file is conductor score to be used
+      Instrument="Conductor Score";;
   esac
   echo "Processing $Instrument score..."
   NumberOfPages=$(pdftk "$f" dump_data | grep NumberOfPages | cut -d":" -f2)
@@ -109,8 +111,8 @@ BookmarkPageNumber: %d
   ((PageCount+=NumberOfPages))
 done
 
-echo "Converting markdown contents page to PDF..."
-pandoc -o "${ContentsName}.pdf" "${ContentsName}.md"
+echo "Converting markdown contents page to A4-sized PDF..."
+pandoc -s -V papersize:a4 -o "${ContentsName}.pdf" "${ContentsName}.md"
 if [[ $? -ne 0 ]]; then
   echo "These are not the droids you're looking for."
   echo "Error converting markdown to PDF."
@@ -123,6 +125,7 @@ pdftk *.pdf cat output "${PackFileName}"
 echo "Cleaning up with light sabre..."
 rm "${PackName} - 01.pdf" > /dev/null 2>&1
 rm "${ContentsName}.pdf" > /dev/null 2>&1
+#cp "${ContentsName}.md" .contents.md
 rm "${ContentsName}.md" > /dev/null 2>&1
 
 echo "Adding a PDF bookmark for each instrument..."
